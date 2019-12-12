@@ -1,0 +1,28 @@
+O Arquivo ratings.csv possui em cada linha um:
+	* ID do Usuário
+	* ID do Filme que recebeu nota
+	* Nota dada ao Filme de 0 a 5
+	* Momento que a nota foi dada em milisegundos.
+todos separados por uma virgula ( , ).
+Significando que o Usuario W deu uma Nota X no Filme Y no instante Z. 
+
+O Arquivo de movies.csv possui em cada linha um:
+	* ID do filme
+	* Nome do filme
+	* Generos que o filme se enquadra separados por |
+todos separados por uma virgula ( , ).
+Significando que o Filme X possui o Nome Y e possui os Generos Z1 , Z2, ..., Zn.
+
+O Arquivo tags.csv possui em cada linha um:
+	* ID do usuario
+	* ID do filme
+	* Tag usada
+	* Momento que a tag foi usada do usuario no filme
+todos separados por uma virgula ( , ).
+Significando que o Usuario W usou uma tag X para o filme Y no instante Z.
+
+O arquivo de link.csv possui em cada linha um:
+	* ID do filme
+	* ID do link do video
+	* ID do link da tumbinaill
+todos separados por uma virgula ( , ).

@@ -1,0 +1,39 @@
+trio = false
+
+mapFilmeGostado(chave,texto)
+	palavras[] = separaPalavras(texto)
+	user = palavras[0]
+	filme = palavra[1]
+	nota = converteNumero(palavras[2])
+	se nota >= 4 entao
+		escreve(user,filme)
+
+reduceCriaListaFilmes(chave,listaFilme)
+	texto = ""
+	para filme em listaFilme
+		texto = texto + filme
+	escreve(chave,texto)
+
+mapCriaTodasCombinacoes(chave,texto)
+	palavras[] = separaPalavras(texto)
+	filmesIDs[] = palavras[1..]
+	ordena(filmesIDs)
+	se trio entao
+		para i de 0 a filmesIDs.tamanho - 2
+			para j de i + 1 a filmesIDs.tamanho - 1
+				texto = ""
+				para k de j + 1 a filmesIDs.tamanho
+					texto = filmesIDs[i] + " " + filmesIDs[j] + " " + filmesIDs[k]
+					escreve(texto,1)
+	senao
+		para i de 0 a filmesIDs.tamanho - 1
+			texto = ""
+			para j de i + 1 a filmesIDs.tamanho
+				texto = filmesIDs[i] + " " + filmesIDs[j]
+				escreve(texto,1)
+
+reduceSomaValores(chave,listaQuantidade)
+	soma = 0
+	para valor em listaQuantidade
+		soma = soma + valor
+	escreve(chave,soma)
