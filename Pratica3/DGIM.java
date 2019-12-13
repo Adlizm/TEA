@@ -1,5 +1,4 @@
-package pratica5;
-
+package pratica3;
 
 import java.util.ArrayList;
 
@@ -14,9 +13,9 @@ public class DGIM {
         }
     }
     private int timestamp = 0;
-    private final int maxSize;
+    private int maxSize;
     private ArrayList<Bucket> buckets;
-    private final int maxBuckets;
+    private int maxBuckets;
     
     public DGIM(int maxWindowSize) {
         this.maxSize = maxWindowSize;
@@ -52,15 +51,16 @@ public class DGIM {
     int contagemJanela(int t) {
         int i,qnt = 0;
         Bucket b = null;
-        for(i = buckets.size() - 1; i >= 0; i++){
+        for(i = buckets.size() - 1; i >= 0; i--){
             b= buckets.get(i);
-            if(b.time > t){
+            if(b.time >= t){
                 qnt += (int) Math.pow(2,b.length);
+                b = null;
             }else{
                 break;
             }
         }
-        qnt +=  (b instanceof Bucket) ? (int) Math.pow(2,b.length)/2: 0;
+        qnt +=  b != null ? (t - b.time): 0;
         return qnt;
     }
 }

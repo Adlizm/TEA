@@ -1,5 +1,4 @@
-package pratica5;
-
+package pratica3;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ public class Leitor {
     File dir = new File("/home/graduacao/www.ufu.br");
     ArrayList<String> arqs =  new ArrayList<String>();
 
-    int K = 10; // numero de funÃ§Ãµes hashes do bloom filter
+    int K = 10; // numero de fun�oes hashes do bloom filter
     int M = 50000;// numero de bits na tabela do bloom filter
 
     BloomFilter conjuntoDocs = new BloomFilter(K, M);
