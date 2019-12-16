@@ -1,0 +1,1 @@
+Arquivo output1.7z é uma compressão do arquivo de output do mapper1.py e reducer1.py

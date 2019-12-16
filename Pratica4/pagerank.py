@@ -5,8 +5,8 @@ import numpy as np
 
 # Tarefa 2
 M = 34
-# Cria array M x M com zeros
-matrixM = np.zeros((M,M))
+# Cria array M x M identidade
+matrixM = np.identity(M)
 
 # Padrões no arquivo
 source = None
@@ -39,17 +39,18 @@ for i in range(0,M):
             # Divide todos os valores da coluna i pela soma
             matrixM[j][i] = matrixM[j][i] / s         
 
-'''
 # Escrever matrix no arquivo
+'''
 arquivo = open("Pratica4/matrix.txt","w")
 for row in matrixM:
-    arquivo.write(str(list(row)))
+    for n in row:
+        arquivo.write("%.4lf\t" % n)
     arquivo.write("\n")
 arquivo.close()
 '''
 
 # Transformando array em Matriz
-matrixM = np.matrix(matrixM)      
+matrixM = np.matrix(matrixM)
 
 # Tarefa 3
 b = 0.8
@@ -61,17 +62,20 @@ def interation():
     global pagerank
     
     newpagerank = (matrixM @ pagerank) * b + (1 - b)*(1 / M)
-    dPagerank = np.abs(np.sum(newpagerank) - np.sum(pagerank))
+    dPagerank = 0
+    for i in range(0,M):
+        dPagerank += np.abs(newpagerank[i] - pagerank[i])
+    
     pagerank = newpagerank
-    return dPagerank
+    return np.sum(dPagerank)
 
 # Tarefa 4
 dPagerank = interation()
 while(dPagerank > 0.001):
     dPagerank = interation()
 
-'''
 # Escrever pagerank no arquivo
+'''
 arquivo = open("Pratica4/pagerank.txt","w")
 arquivo.write(str(pagerank))
 arquivo.close()
