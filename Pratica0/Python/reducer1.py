@@ -11,9 +11,9 @@ for line in sys.stdin:
 	elif(line == aux):
 		cont += 1
 	else:
-		print(aux + " " + str(cont) + "\n")
+		print(aux + " " + str(cont))
 		cont = 1
 		aux = line
 
 if(aux != None):
-	print(aux + " " + str(cont) + "\n")
+	print(aux + " " + str(cont))
